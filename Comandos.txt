@@ -1,0 +1,11 @@
+
+git config --global user.name / user.email
+git config --global -l (ver perfil)
+cria, modifica ou exclui pasta/arquivo
+
+git add *
+git add * --all (quando excluir um arquivo)
+// Antes deve configurar user.name e user.email
+git commit -m "Mensagem"
+git pull
+git push
