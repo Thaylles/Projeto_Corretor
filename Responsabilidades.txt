@@ -1,0 +1,16 @@
+Papeis/Responsabilidades
+
+Equipe :
+
+Gerencia as tarefas **
+
+Especificação -- Subir no repositório -- .txt
+
+WireFrame -- Subir no repositório -- //Foi feito no programa tal 
+
+Pasta do workspace -- Subir no repositório -- Bins são ignorados, ajustar/editar o gitignore.
+
+Criar o projeto no eclipse -- No eclipse workspace -- diretório -- criar um projeto e subir ele
+
+Fazer uma parte do trabalho e o outro reportar teste e testar o maximo possivel o trabalho **
+
