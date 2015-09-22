@@ -15,10 +15,12 @@ public class Main {
 		AdicionarTextoControlador adicionarTexto = new AdicionarTextoControlador();
 		
 		AdicionarTextoControladorP adicionarTextoP = new AdicionarTextoControladorP();
+		LerTextosControlador lerControlador = new LerTextosControlador();
 		
 		Spark.post("/adicionandoTexto", adicionarTexto);
-		
 		Spark.get("/novoTexto", adicionarTextoP, engine);
+		LerTextosControlador lerTextosControlador = new LerTextosControlador();
+		Spark.get("/lista",lerTextosControlador,engine);
 		
 	}
 

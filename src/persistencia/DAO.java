@@ -1,5 +1,7 @@
 package persistencia;
 
+import java.util.ArrayList;
+
 // geral ou abstrato
 public interface DAO<T> {
 	
@@ -7,10 +9,10 @@ public interface DAO<T> {
 	
 	//public void delete(T obj);
 	
-	//public T load(String titulo);
+	public T load(String titulo);
 	
 	//public void update(T obj);
 	
-	//public ArrayList<T> findAll();
+	public ArrayList<T> findAll();
 	
 }

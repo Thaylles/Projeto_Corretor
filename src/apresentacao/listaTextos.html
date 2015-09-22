@@ -1,0 +1,30 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Lista</title>
+</head>
+<body>
+	<h1> Lista de Textos</h1>
+	<table>
+		<thead>
+			<tr>
+				<th>Titulo</th>
+				<th>Texto</th>
+				<th>Autor</th>
+			</tr>
+		</thead>
+		<tbody>
+		{{#texto}}
+		<tr>
+		<td>{{titulo}}</td>
+		<td>{{texto}}</td>
+		<td>{{autor}}</td>
+		</tr>
+	{{/texto}}
+	</tbody>
+	</table>
+	<a href="/novoTexto">Novo Texto</a>
+</body>
+</html>

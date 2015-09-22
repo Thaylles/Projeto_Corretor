@@ -13,6 +13,7 @@ public class AdicionarTextoControlador implements Route {
 		String texto = req.queryParams("texto");
 		String autor = req.queryParams("autor");
 		textos.save(new Texto(titulo, texto, autor));
+		res.redirect("/lista");
 		return null;
 	}
 }
