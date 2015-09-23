@@ -11,7 +11,6 @@
 		<thead>
 			<tr>
 				<th>Titulo</th>
-				<th>Texto</th>
 				<th>Autor</th>
 			</tr>
 		</thead>
@@ -19,12 +18,20 @@
 		{{#texto}}
 		<tr>
 		<td>{{titulo}}</td>
-		<td>{{texto}}</td>
 		<td>{{autor}}</td>
 		</tr>
 	{{/texto}}
+ </tr>
 	</tbody>
 	</table>
+	<form>
+	<br>
+	  <td>Insira o numero do texto:</td>
+	  <br>
+  <input type="number" name="numero" Placeholder="Insira o numero do texto aqui" >
+  		<input type='submit' value='Salvar' />
+	</form>
+	<br>
 	<a href="/novoTexto">Novo Texto</a>
 </body>
 </html>

@@ -46,8 +46,14 @@ public class TextoDAO implements DAO<Texto> {
 	}
 
 	public Texto load(String nome) {		
+		File cont = new File("src/apresentacao/cont.csv");
+		Scanner scan2;
+
 		try {
-			File arq = new File("src/apresentacao/Textos/" + nome + ".csv");
+			scan2 = new Scanner(cont);
+			String row = scan2.nextLine();
+			int index = Integer.parseInt(row);
+			File arq = new File("src/apresentacao/Textos/" + index + ".csv");
 			
 			if ( ! arq.exists()) return null;
 			
