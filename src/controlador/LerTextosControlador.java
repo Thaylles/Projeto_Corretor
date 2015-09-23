@@ -1,5 +1,6 @@
 package controlador;
 import spark.*;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -17,11 +18,11 @@ private TextoDAO dao = new TextoDAO();
 		ArrayList<Texto> texto = dao.findAll();
 		HashMap mapa = new HashMap();
 		    //variavel html //variavel java
+		
 		mapa.put("texto", texto);
 		// "filmes"= variavel que eu vou me orientar no html
 		// filmes = variavel existente apenas no java
-		
-		//HashMap liga a pagina ao conteudo q tem o msm nome, smp q se referir a filmes na pagina se diz respeito a lista
+		//HashMap liga a pagina ao conteudo q tem o msm nome, 	smp q se referir a filmes na pagina se diz respeito a lista
 		return new ModelAndView(mapa, "listaTextos.html");
 	}
 
