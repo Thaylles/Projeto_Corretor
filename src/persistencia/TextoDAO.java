@@ -50,6 +50,8 @@ public class TextoDAO implements DAO<Texto> {
 			f.setTexto(colunas[1]);
 			f.setAutor(colunas[2]);
 			f.setChave(Integer.parseInt(colunas[3]));
+			
+			scan.close();
 			return f;
 			
 		} catch (Exception e) {
@@ -75,6 +77,7 @@ public class TextoDAO implements DAO<Texto> {
 				f.setAutor(colunas[2]);
 				f.setChave(Integer.parseInt(colunas[3]));
 				lista.add(f);
+				scan.close();
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
