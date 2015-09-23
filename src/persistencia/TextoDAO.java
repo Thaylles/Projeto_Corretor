@@ -9,20 +9,14 @@ import modelo.Texto;
 public class TextoDAO implements DAO<Texto> {
 	
 	public void save(Texto obj) throws FileNotFoundException {
-		File cont = new File("src/apresentacao/cont.csv");
 		File dir = new File("src/apresentacao/Textos");
 		if(! dir.exists()) 
 			dir.mkdir();
 		
-		Scanner scan = new Scanner(cont);
-		String linha = scan.nextLine();
-		int index = Integer.parseInt(linha);
-		
-		File file = new File("src/apresentacao/Textos/" + index + ".csv");
+		File file = new File("src/apresentacao/Textos/" + obj.getChave() + ".csv");
 		if(file.exists() == false) {
 			
 			FileWriter writer;
-			FileWriter writer2;
 			try {
 				
 				writer = new FileWriter(file);
@@ -31,11 +25,6 @@ public class TextoDAO implements DAO<Texto> {
 				writer.flush();
 				writer.close();
 				
-				writer2 = new FileWriter(cont);
-				writer2.write((index + 1 )+ "");
-				
-				writer2.flush();
-				writer2.close();
 				
 			} catch (IOException e) {
 				e.printStackTrace();
@@ -45,15 +34,10 @@ public class TextoDAO implements DAO<Texto> {
 			
 	}
 
-	public Texto load(String nome) {		
-		File cont = new File("src/apresentacao/cont.csv");
-		Scanner scan2;
+	public Texto load(int chave) {		
 
 		try {
-			scan2 = new Scanner(cont);
-			String row = scan2.nextLine();
-			int index = Integer.parseInt(row);
-			File arq = new File("src/apresentacao/Textos/" + index + ".csv");
+			File arq = new File("src/apresentacao/Textos/" + chave + ".csv");
 			
 			if ( ! arq.exists()) return null;
 			
@@ -62,9 +46,10 @@ public class TextoDAO implements DAO<Texto> {
 			String[] colunas = linha.split(";");
 			
 			Texto f = new Texto();
-			f.setTitulo(nome);
+			f.setTitulo(colunas[0]);
 			f.setTexto(colunas[1]);
 			f.setAutor(colunas[2]);
+			f.setChave(Integer.parseInt(colunas[3]));
 			return f;
 			
 		} catch (Exception e) {
@@ -88,6 +73,7 @@ public class TextoDAO implements DAO<Texto> {
 				f.setTitulo(colunas[0]);
 				f.setTexto(colunas[1]);
 				f.setAutor(colunas[2]);
+				f.setChave(Integer.parseInt(colunas[3]));
 				lista.add(f);
 			}
 		} catch (Exception e) {

@@ -10,7 +10,7 @@ public interface DAO<T> {
 	
 	//public void delete(T obj);
 	
-	public T load(String titulo);
+	public T load(int chave);
 	
 	//public void update(T obj);
 	
