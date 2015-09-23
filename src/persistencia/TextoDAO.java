@@ -84,6 +84,11 @@ public class TextoDAO implements DAO<Texto> {
 		}
 		return lista;
 	}
+	
+	public void delete(int chave){
+		File a = new File("src/apresentacao/Textos/" + chave + ".csv");
+		if(a.exists())a.delete();
+	}
 
 }
 

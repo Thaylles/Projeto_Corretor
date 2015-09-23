@@ -13,6 +13,8 @@ public class Main {
 		MustacheTemplateEngine engine = new MustacheTemplateEngine("apresentacao");
 		
 		AdicionarTextoControlador adicionarTexto = new AdicionarTextoControlador();
+		ExcluirTextosControlador excluirTextoControlador = new ExcluirTextosControlador();
+		ExcluindoTextosControlador excluirTexto = new ExcluindoTextosControlador();
 		
 		AdicionarTextoControladorP adicionarTextoP = new AdicionarTextoControladorP();
 		LerTextosControlador lerControlador = new LerTextosControlador();
@@ -22,6 +24,8 @@ public class Main {
 		LerTextosControlador lerTextosControlador = new LerTextosControlador();
 		Spark.get("/lista",lerTextosControlador,engine);
 		Spark.get("/exibirTexto",exibirTextoControlador,engine);
+		Spark.get("/excluir", excluirTextoControlador, engine);
+		Spark.post("/excluindoTexto", excluirTexto);
 		
 	}
 

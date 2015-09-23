@@ -16,4 +16,6 @@ public interface DAO<T> {
 	
 	public ArrayList<T> findAll();
 	
+	public void delete(int chave);
+	
 }
