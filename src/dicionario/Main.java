@@ -11,6 +11,7 @@ public class Main {
 		System.out.println(dicionario.next());
 		
 		System.out.println(dicionario.size());
+		System.out.println(dicionario.isCorrect("banana"));
 		
 	}
 
