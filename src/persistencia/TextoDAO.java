@@ -46,10 +46,8 @@ public class TextoDAO implements DAO<Texto> {
 			String[] colunas = linha.split(";");
 			
 			Texto f = new Texto();
-			f.setTitulo(colunas[0]);
-			f.setTexto(colunas[1]);
-			f.setAutor(colunas[2]);
-			f.setChave(Integer.parseInt(colunas[3]));
+			f.setTexto(colunas[0]);
+			f.setChave(Integer.parseInt(colunas[1]));
 			
 			scan.close();
 			return f;
@@ -72,10 +70,8 @@ public class TextoDAO implements DAO<Texto> {
 				String linha = scan.nextLine();
 				String[] colunas = linha.split(";");
 				Texto f = new Texto();
-				f.setTitulo(colunas[0]);
-				f.setTexto(colunas[1]);
-				f.setAutor(colunas[2]);
-				f.setChave(Integer.parseInt(colunas[3]));
+				f.setTexto(colunas[0]);
+				f.setChave(Integer.parseInt(colunas[1]));
 				lista.add(f);
 				scan.close();
 			}

@@ -11,21 +11,10 @@ public class Main {
 		Spark.staticFileLocation("/publico");
 		
 		MustacheTemplateEngine engine = new MustacheTemplateEngine("apresentacao");
-		
 		AdicionarTextoControlador adicionarTexto = new AdicionarTextoControlador();
-		ExcluirTextosControlador excluirTextoControlador = new ExcluirTextosControlador();
-		ExcluindoTextosControlador excluirTexto = new ExcluindoTextosControlador();
-		
-		AdicionarTextoControladorP adicionarTextoP = new AdicionarTextoControladorP();
-		LerTextosControlador lerControlador = new LerTextosControlador();
-		ExibirTextoControlador exibirTextoControlador = new ExibirTextoControlador();
+		HomeControlador home = new HomeControlador();
 		Spark.post("/adicionandoTexto", adicionarTexto);
-		Spark.get("/novoTexto", adicionarTextoP, engine);
-		LerTextosControlador lerTextosControlador = new LerTextosControlador();
-		Spark.get("/lista",lerTextosControlador,engine);
-		Spark.get("/exibirTexto",exibirTextoControlador,engine);
-		Spark.get("/excluir", excluirTextoControlador, engine);
-		Spark.post("/excluindoTexto", excluirTexto);
+		Spark.get("/home", home, engine);
 		
 	}
 

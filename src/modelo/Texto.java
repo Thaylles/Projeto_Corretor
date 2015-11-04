@@ -9,23 +9,20 @@ import java.util.Scanner;
 
 public class Texto {
 	
-	private String titulo;
-	private String autor;
+
 	private String texto;
 	private int chave;
 	
-	public Texto(String titulo, String texto, String autor) throws FileNotFoundException {
+	public Texto(String texto) throws FileNotFoundException {
 		super();
-		this.titulo = titulo;
 		this.texto = texto;
-		this.autor = autor;
-		
 		File cont = new File("src/apresentacao/cont.csv");
 		Scanner scan = new Scanner(cont);
 		String linha = scan.nextLine();
 		int index = Integer.parseInt(linha);
 		this.chave = index;
 		
+		//adiciona +1 no cont.csv
 		Writer writer2;
 		try {
 			writer2 = new FileWriter(cont);
@@ -44,19 +41,6 @@ public class Texto {
 		
 	}
 
-	public String getAutor() {
-		return autor;
-	}
-	public void setAutor(String autor) {
-		this.autor = autor;
-	}
-
-	public String getTitulo() {
-		return titulo;
-	}
-	public void setTitulo(String titulo) {
-		this.titulo = titulo;
-	}
 	
 	public String getTexto() {
 		return texto;
@@ -76,22 +60,20 @@ public class Texto {
 	
 	@Override
 	public String toString() {
-		return "Texto [titulo=" + titulo + ", texto=" + texto + ", autor=" + autor + "]";
+		return "Texto [ texto=" + texto  + "]";
 	}
 	public String toCSV() {
 		
 		StringBuilder builder = new StringBuilder();
-		builder.append(titulo).append(";").append(texto).append(";").append(autor).append(";").append(chave + "").append("\n");
+		builder.append(texto).append(";").append(chave + "").append("\n");
 		return builder.toString();
 	}
 	
 	public void fromCSV(String row) {
 		
 		String [] columns = row.split(";");
-		this.setTitulo(columns[0]);
-		this.setTexto(columns[1]);
-		this.setAutor(columns[2]);
-		this.setChave(Integer.parseInt(columns[3]));
+		this.setTexto(columns[0]);
+		this.setChave(Integer.parseInt(columns[1]));
 		
 	}
 }
