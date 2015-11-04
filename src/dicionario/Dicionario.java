@@ -9,11 +9,17 @@ public class Dicionario {
 	
 	private int cont = 0;
 	
-	public Dicionario() throws Exception{
+	public Dicionario() {
 		
 		File dicionario = new File("src/dicionario/dicionario.txt");
 		
-		Scanner scan = new Scanner(dicionario);
+		Scanner scan = null;
+		try {
+			scan = new Scanner(dicionario);
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 		while (scan.hasNextLine()) {
 			palavras.add(scan.nextLine());
