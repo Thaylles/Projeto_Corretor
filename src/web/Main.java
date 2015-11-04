@@ -9,7 +9,6 @@ public class Main {
 
 	public static void main(String[] args) throws Exception {
 		Dicionario dicionario = new Dicionario();
-		System.out.println(dicionario.isCorrect("banana"));
 		Spark.staticFileLocation("/publico");
 		
 		MustacheTemplateEngine engine = new MustacheTemplateEngine("apresentacao");
