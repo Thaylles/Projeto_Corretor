@@ -6,13 +6,16 @@ import dicionario.Dicionario;
 
 public class Levenshtein {
 
-	public static int distance(String palavra) {
+	public static Object distance(String palavra) {
 		String a = palavra.toLowerCase();
 		Dicionario dicionario = new Dicionario();
-		Object[][] aproximadas = new Object[2][1];
+		Object[][] aproximadas = new Object[3][3];
 		String b = "";
+		int linhas=0;
+		int colunas=0;
+		
 		if (dicionario.isCorrect(palavra)) {
-			return 0;
+			return aproximadas;
 		} else {
 			for (int t = 0; t < dicionario.size(); t++) {
 				b = dicionario.next();
@@ -29,9 +32,20 @@ public class Levenshtein {
 			                costs[j] = cj;
 					}
 				}
-			}
-		}
+			        if(costs[b.length()] <= 3){
+			        		if(aproximadas[linhas][0] == null){
+			        			System.out.println(b);
+			        			System.out.println(costs[b.length()]);
+			        			aproximadas[linhas][0] = costs[b.length()];
+			        			aproximadas[linhas][colunas] = b;
+			        			linhas++; colunas++;
+			        			if(linhas == 3 && colunas == 3){ linhas=0; colunas=0;}
+			        			}
+			        		
+			        		}
+			        	}
+			        }
 
-	return 0;	
+	return aproximadas;	
 	}
 }
