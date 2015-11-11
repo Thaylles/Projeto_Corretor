@@ -1,0 +1,43 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>Corrigindo</title>
+</head>
+<body>
+
+	<p align="center">
+		Texto a ser corrigido
+	</p>
+
+	<br>
+	<br>
+	<br>
+	
+<form method='post' action='/correção'>
+	<input type="radio" name="correção" value=1> Primeira Correção
+	<br>
+	<input type="radio" name="correção" value=2> Segunda Correção
+	<br>
+	<input type="radio" name="correção" value=3> Terceira Correção
+	<br>
+	<input type="radio" name="correção" value=4> Nenhuma Correção
+	<br>
+	<br>
+	
+	<script>
+	
+	  function tecla(){
+	    evt = window.event;
+	    var tecla = evt.keyCode;
+
+	    if(tecla == 13){ 
+	      evt.preventDefault();
+	    }
+	  }
+
+	</script>
+	
+	<input type='submit' value="Corrigir" onKeyPress = "tecla()"/>
+</form>
+</body>
+</html>

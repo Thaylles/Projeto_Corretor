@@ -1,0 +1,42 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>Novo Texto</title>
+</head>
+<body>
+
+<form method='post' action='/adicionandoTexto'>
+	<label>
+	<p align="center">
+		<font size=5>
+			<strong>Texto:</strong>
+		</font>
+		<br>
+		<br>
+		<textarea name='texto' cols=100 rows=15 maxlength=10000></textarea>
+		<br>
+	</label>
+	<br>
+	<br>
+	
+	<input type='submit' value='Corrigir'/>
+	</p>
+</form>
+
+<br>
+<br>
+<br>
+	<p align="center">
+	<font size=5>
+			<strong>Ou se preferir mandar um arquivo de texto:</strong>
+		</font>
+		<form action="/recebeTexto" method="post" enctype="multipart/form-data">
+	
+		<input type="file" name="arquivotexto" accept=".txt">
+		<input type="submit" value="upa!">
+		
+		</form>
+	</p>
+
+</body>
+</html>
