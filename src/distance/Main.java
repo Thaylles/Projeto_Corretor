@@ -3,11 +3,10 @@ package distance;
 public class Main {
 
 	public static void main(String[] args) {
+		String a = "mao";
 		
-		String palavra = "horigem";
-		Object [][] ue = new Object [2][2];
-		
-		System.out.println(Levenshtein.distance(palavra));
+		System.out.println(Levenshtein.distance(a));
+
 	}
 
 }
