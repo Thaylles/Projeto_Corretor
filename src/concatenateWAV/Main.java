@@ -9,6 +9,7 @@ public class Main {
 		ConcatenateWAV.soletrar("órgão");
 		ConcatenateWAV.soletrar("ônibus");
 		ConcatenateWAV.soletrar("d'água");
+		ConcatenateWAV.soletrar("a");
 	}
 
 }

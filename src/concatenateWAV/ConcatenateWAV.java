@@ -8,7 +8,6 @@ public class ConcatenateWAV {
 	
 	public static void soletrar(String palavra) {
 		char [] letras = palavra.toCharArray();
-		
 		ArrayList<String> temp = new ArrayList<String>();
 		
 		for(int index = 0; index < letras.length; index++) {
@@ -25,36 +24,29 @@ public class ConcatenateWAV {
 	        	case 'ô': temp.add("o");temp.add("^");break;
 	        	case 'ú': temp.add("u");temp.add("´");break;  
 	        	case 'ç': temp.add("c");temp.add("ç");break;
+	        	case '°': break;
+	        	case 'º': break;
+	        	case 'ª': break;
+	        	case '¹': break;
+	        	case '²': break;
+	        	case '³': break;
+	        	case '&': break;
 	        	default: temp.add(letras[index] + "");
 			}
 		}
 
 		AudioInputStream audio = null;
 		
-		if(temp.size() != 0) {
-			for(int index = 1; index < temp.size(); index++) {
-				if(index == 1){
-					try {
-						audio = AudioSystem.getAudioInputStream(new File("D:\\Projeto_Corretor\\src\\concatenateWAV\\Audios\\" + temp.get(0) + ".wav"));
-					} catch (Exception e1) {
-						e1.printStackTrace();
-					}
+		for(int index = 0; index < temp.size(); index++) {
+			if(index == 0){
+				try {
+					audio = AudioSystem.getAudioInputStream(new File("D:\\Projeto_Corretor\\src\\concatenateWAV\\Audios\\" + temp.get(index) + ".wav"));
+				} catch (Exception e1) {
+					e1.printStackTrace();
 				}
-				
+			} else {
+			
 				String dir = "D:\\Projeto_Corretor\\src\\concatenateWAV\\Audios\\" + temp.get(index) + ".wav";
-				audio = concatenate(audio, dir);
-			}
-		} else {
-			for(int index = 1; index < letras.length; index++) {
-				if(index == 1){
-					try {
-						audio = AudioSystem.getAudioInputStream(new File("D:\\Projeto_Corretor\\src\\concatenateWAV\\Audios\\" + letras[0] + ".wav"));
-					} catch (Exception e1) {
-						e1.printStackTrace();
-					}
-				}
-				
-				String dir = "D:\\Projeto_Corretor\\src\\concatenateWAV\\Audios\\" + letras[index] + ".wav";
 				audio = concatenate(audio, dir);
 			}
 		}
