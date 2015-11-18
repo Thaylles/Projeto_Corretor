@@ -16,6 +16,8 @@ public class Main {
 		HomeControlador home = new HomeControlador();
 		Spark.post("/adicionandoTexto", adicionarTexto);
 		Spark.get("/home", home, engine);
+		CorrigindoControlador corrigindo = new CorrigindoControlador();
+		Spark.get("/corrigindo",corrigindo, engine);
 		
 	}
 

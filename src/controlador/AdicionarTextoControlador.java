@@ -1,5 +1,8 @@
 package controlador;
 
+import java.io.*;
+import java.util.Scanner;
+
 import modelo.Texto;
 import persistencia.*;
 import spark.*;
@@ -11,7 +14,7 @@ public class AdicionarTextoControlador implements Route {
 	public Object handle(Request req, Response res) throws Exception {
 		String texto = req.queryParams("texto");
 		textos.save(new Texto( texto));
-		res.redirect("/home");
+		res.redirect("/corrigindo");
 		return null;
 	}
 }
