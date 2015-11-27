@@ -2,7 +2,10 @@ package concatenateWAV;
 
 import java.io.*;
 import java.util.*;
+
 import javax.sound.sampled.*;
+
+import sun.audio.AudioPlayer;
 
 public class ConcatenateWAV {
 	
@@ -40,23 +43,23 @@ public class ConcatenateWAV {
 		for(int index = 0; index < temp.size(); index++) {
 			if(index == 0){
 				try {
-					audio = AudioSystem.getAudioInputStream(new File("C:\\Projeto_Corretor\\src\\concatenateWAV\\Audios\\" + temp.get(index) + ".wav"));
+					audio = AudioSystem.getAudioInputStream(new File("Audios\\" + temp.get(index) + ".wav"));
 				} catch (Exception e1) {
 					e1.printStackTrace();
 				}
 			} else {
 			
-				String dir = "C:\\Projeto_Corretor\\src\\concatenateWAV\\Audios\\" + temp.get(index) + ".wav";
+				String dir = "Audios\\" + temp.get(index) + ".wav";
 				audio = concatenate(audio, dir);
 			}
 		}
 		
 		try {
-			File dir = new File("C:\\Projeto_Corretor\\src\\concatenateWAV\\Palavras");
+			File dir = new File("Palavras\\");
 			if(dir.length() == 12)
 				if(dir.delete())
 					dir.mkdir();
-			AudioSystem.write(audio, AudioFileFormat.Type.WAVE, new File("C:\\Projeto_Corretor\\src\\concatenateWAV\\Palavras\\"+ palavra +".wav"));
+			AudioSystem.write(audio, AudioFileFormat.Type.WAVE, new File("Palavras\\"+ palavra +".wav"));
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

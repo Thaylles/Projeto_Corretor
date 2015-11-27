@@ -19,16 +19,19 @@ public class Levenshtein {
 				for(int i=1; i < palavra.length()-1; i++){
 					if(palavra.charAt(i) == 'o'  && dicionario.isCorrect(replaceOne(palavra, i, 'o', 'õ'))){
 						aproximadas[0][1] =  replaceOne(palavra, i, 'o', 'õ');
-						aproximadas[0][0] = ""+1;
+						aproximadas[0][0] = 0+"";
 						verificaExcecao = true;
 					}
 					if(palavra.charAt(i) == 'a' && dicionario.isCorrect(replaceOne(palavra, i, 'a', 'ã'))){
 						aproximadas[0][1] = replaceOne(palavra, i, 'a', 'ã');
-						aproximadas[0][0] = ""+1;
+						aproximadas[0][0] = 0+"";
 						verificaExcecao = true;
 					}
 				}
 			}
+			
+			
+			
 			for (int t = 0; t < dicionario.size(); t++) {
 				b = dicionario.next();
 				int[] costs = new int[b.length() + 1];
@@ -47,7 +50,7 @@ public class Levenshtein {
 				}
 				for (int i = 0; i < 3; i++) {
 					if (aproximadas[i][0] == null || Integer.parseInt(aproximadas[i][0]) > costs[b.length()]) {
-						if(verificaExcecao == true && i != 0 || verificaExcecao == false){
+						if(verificaExcecao == true && i != 0 && b != aproximadas[0][1] || verificaExcecao == false){
 							aproximadas[i][1] = b;
 							aproximadas[i][0] = costs[b.length()]+"";
 						}
@@ -63,7 +66,7 @@ public class Levenshtein {
 	
 	public static String replaceOne(String s, int i, char a, char b){
 		char[] palavraNova =  s.toCharArray();
-		if(palavraNova[i] == 'a') palavraNova[i] = b;
+		if(palavraNova[i] == 'a' || palavraNova[i]=='o') palavraNova[i] = b;
 		return String.valueOf(palavraNova);
 		
 	}
