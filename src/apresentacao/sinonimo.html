@@ -1,8 +1,35 @@
 <html>
 <head>
-	<link rel="shortcut icon" href="/C:/Projeto_Corretor/imagem/favicon.ico" type="image/x-icon"/>
-	<title> Sinonimos </title>
+	<link rel="shortcut icon" href="/imagem/favicon.ico" type="image/x-icon"/>
+	<title> Sinônimos </title>
+	<meta charset="utf-8">
 </head>
 	<body>
+		<h1>Lista de Sinônimos</h1>
+	{{blah}}
+  <table>
+    <thead>
+      <tr>
+        <th>Texto</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#Texto}}
+      <tr>
+        <td>{{Texto}}</td>
+        <td>
+        	<a href="/exclui/{{numero}}" onclick="return confirm('Deseja excluir este filme?');">
+        		Excluir
+        	</a>
+        	<a href="/ver">
+        		Ver
+        	</a>
+        </td>
+      </tr>
+      {{/Texto}}
+    </tbody>
+  </table>
+  <a href="/novo">Novo Sinônimo</a>
 	</body>
 </hmtl>

@@ -20,6 +20,8 @@ public class Main {
 		Spark.get("/corrigindo",corrigindo, engine);
 		SinonimoControlador sinonimo = new SinonimoControlador();
 		Spark.get("/sinonimo", sinonimo, engine);
+		NovoControlador novo = new NovoControlador();
+		Spark.get("/novo", novo, engine);
 	}
 
 }

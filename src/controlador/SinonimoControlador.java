@@ -1,7 +1,10 @@
 package controlador;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 
+import modelo.Texto;
+import persistencia.TextoDAO;
 import spark.ModelAndView;
 import spark.Request;
 import spark.Response;
@@ -9,12 +12,12 @@ import spark.TemplateViewRoute;
 
 public class SinonimoControlador implements TemplateViewRoute {
 
-	@Override
+	private TextoDAO dao = new TextoDAO();
+	
 	public ModelAndView handle(Request req, Response resp) {
+		ArrayList<Texto> sinonimos = dao.findAll();
 		HashMap mapa = new HashMap();
-		if (req.queryParams("erro") != null) { // existe um parâmetro erro
-			mapa.put("erro", req.queryParams("erro"));
-		}
+		mapa.put("sinonimo", sinonimos);		
 		return new ModelAndView(mapa, "sinonimo.html");
 	}
 
