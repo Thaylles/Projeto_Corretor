@@ -17,8 +17,8 @@ public class SinonimoControlador implements TemplateViewRoute {
 	public ModelAndView handle(Request req, Response resp) {
 		ArrayList<Texto> sinonimos = dao.findAll();
 		HashMap mapa = new HashMap();
-		mapa.put("sinonimo", sinonimos);		
-		return new ModelAndView(mapa, "sinonimo.html");
+		mapa.put("sinonimos", sinonimos);		
+		return new ModelAndView(mapa, "sinonimos.html");
 	}
 
 }

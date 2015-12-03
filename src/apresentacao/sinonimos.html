@@ -6,7 +6,6 @@
 </head>
 	<body>
 		<h1>Lista de Sinônimos</h1>
-	{{blah}}
   <table>
     <thead>
       <tr>
@@ -15,19 +14,16 @@
       </tr>
     </thead>
     <tbody>
-      {{#Texto}}
+     {{#sinonimos}}
       <tr>
-        <td>{{Texto}}</td>
+        <td>{{texto}}</td>
         <td>
-        	<a href="/exclui/{{numero}}" onclick="return confirm('Deseja excluir este filme?');">
+        	<a href="/exclui/{{chave}}" onclick="return confirm('Deseja excluir este Sinonimo?');">
         		Excluir
-        	</a>
-        	<a href="/ver">
-        		Ver
         	</a>
         </td>
       </tr>
-      {{/Texto}}
+      {{/sinonimos}}
     </tbody>
   </table>
   <a href="/novo">Novo Sinônimo</a>
