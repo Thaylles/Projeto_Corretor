@@ -10,7 +10,7 @@ import spark.Request;
 import spark.Response;
 import spark.TemplateViewRoute;
 
-public class SinonimoControlador implements TemplateViewRoute {
+public class ListaControlador implements TemplateViewRoute {
 
 	private TextoDAO dao = new TextoDAO();
 	

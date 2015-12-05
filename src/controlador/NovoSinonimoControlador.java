@@ -7,7 +7,7 @@ import spark.Request;
 import spark.Response;
 import spark.TemplateViewRoute;
 
-public class NovoControlador
+public class NovoSinonimoControlador
 	implements TemplateViewRoute {
 
 	@Override
@@ -16,7 +16,7 @@ public class NovoControlador
 		if (req.queryParams("erro") != null) { // existe um parâmetro erro
 			mapa.put("erro", req.queryParams("erro"));
 		}
-		return new ModelAndView(mapa, "novo.html");
+		return new ModelAndView(mapa, "novoSinonimo.html");
 	}
 
 }

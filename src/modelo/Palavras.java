@@ -10,7 +10,7 @@ import java.util.Scanner;
 
 public class Palavras {
 	
-	private String palavra;
+	private  String palavra;
 	private String[] sinonimos;
 	private int chave;
 	private String sinonimosBuilder = "";
@@ -94,9 +94,5 @@ public class Palavras {
 		this.chave = chave;
 	}
 	public static void main(String[] args) {
-		String a = "avião";
-		String[] b = {"teco-teco", "jato"};
-		
-		Palavras(a,b);
 	}
 }

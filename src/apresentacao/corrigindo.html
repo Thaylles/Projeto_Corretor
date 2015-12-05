@@ -1,6 +1,6 @@
+<!DOCTYPE HTML>
 <html>
 <head>
-	<link rel="icon" type="image/x-icon" href="../../imagem/favicon2.png">
 <title>Corrigindo</title>
 </head>
 <body>
@@ -12,36 +12,54 @@
 	<br>
 	<br>
 	<br>
-
+	
+	
+	
 <form method='post' action='/correção'>
-	<input type="radio" name="correção" value=1 accesskey="1" > Primeira Correção
+	<input type="checkbox" name="correção" value={{correcao1}}> Primeira Correção
 	<br>
-	<input type="radio" name="correção" value=2 accesskey="2" > Segunda Correção
+	<input type="checkbox" name="correção" value={{correcao2}}> Segunda Correção
 	<br>
-	<input type="radio" name="correção" value=3 accesskey="3" > Terceira Correção
+	<input type="checkbox" name="correção" value={{correcao3}}> Terceira Correção
 	<br>
-	<input type="radio" name="correção" value=4 accesskey="4" > Nenhuma Correção
+	<input type="checkbox" name="correção" value="Nenhuma Correção"> Nenhuma Correção
 	<br>
-	<p>	
-       Pressione alt e o número correspondente da correção desejada para seleciona-la e enter para corrigir.
-       
-    </p>
 	<br>
 	
-	<script>
 	
-	  function tecla(){
-	    evt = window.event;
-	    var tecla = evt.keyCode;
-
-	    if(tecla == 13){ 
-	      evt.preventDefault();
-	    }
-	  }
-
-	</script>
 	
-	<input type='submit' value="Corrigir" onKeyPress = "tecla()"/>
+	<input type='submit' value="Corrigir" onClick = "verificaCaixas()"/>
 </form>
+
+	<script>
+		function verificaCaixas() {  
+		  
+		  var inpfields = document.getElementsByName("correção");
+		  
+		  var temp = 0;
+		  
+		  for(var i=0; i<inpfields.length; i++) {
+		    if(inpfields[i].checked) temp += 1;
+		  }
+		  
+		  if(temp != 1) {
+			  alert("É necessario marcar apenas uma caixa");
+			  window.event.preventDefault()
+		  }
+		  
+		}
+		
+		<!--	
+		function alterarValor() {  
+			  var inpfields = document.getElementsByName("correção");
+			  
+			  inpfields[0].value = {{correcao1}};
+			  inpfields[1].value = {{correcao2}};
+			  inpfields[2].value = {{correcao3}};  
+		}
+		-->
+		
+	</script>
+
 </body>
 </html>

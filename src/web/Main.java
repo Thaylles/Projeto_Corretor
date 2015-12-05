@@ -18,12 +18,12 @@ public class Main {
 		Spark.get("/home", home, engine);
 		CorrigindoControlador corrigindo = new CorrigindoControlador();
 		Spark.get("/corrigindo",corrigindo, engine);
-		SinonimoControlador sinonimo = new SinonimoControlador();
-		Spark.get("/sinonimo", sinonimo, engine);
-		NovoControlador novo = new NovoControlador();
-		Spark.get("/novo", novo, engine);
+		ListaControlador sinonimo = new ListaControlador();
+		NovoSinonimoControlador novo = new NovoSinonimoControlador();
+		Spark.get("/novoSinonimo", novo, engine);
 		AdicionarSinonimosControlador adicionarSinonimos = new AdicionarSinonimosControlador();
-		Spark.post("adicionandoSinonimos", adicionarSinonimos);
+		Spark.get("/sinonimo",adicionarSinonimos,engine);
+
 		
 	}
 
