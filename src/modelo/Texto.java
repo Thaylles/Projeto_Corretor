@@ -33,18 +33,6 @@ public class Texto {
 		Scanner scan = new Scanner(cont);
 		chave = Integer.parseInt(scan.nextLine());
 		
-		//adiciona +1 no cont.csv
-		Writer writer2;
-		try {
-			writer2 = new FileWriter(cont);
-			writer2.write((chave + 1) + "");
-		
-			writer2.flush();
-			writer2.close();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		
 	}
 
 	public String getTexto() {

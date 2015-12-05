@@ -18,7 +18,7 @@ public class ListaControlador implements TemplateViewRoute {
 		ArrayList<Texto> sinonimos = dao.findAll();
 		HashMap mapa = new HashMap();
 		mapa.put("sinonimos", sinonimos);		
-		return new ModelAndView(mapa, "sinonimos.html");
+		return new ModelAndView(mapa, "lista.html");
 	}
 
 }

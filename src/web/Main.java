@@ -17,7 +17,7 @@ public class Main {
 		Spark.post("/adicionandoTexto", adicionarTexto);
 		Spark.get("/home", home, engine);
 		CorrigindoControlador corrigindo = new CorrigindoControlador();
-		Spark.get("/corrigindo",corrigindo, engine);
+		Spark.get("/corrigindo/:numero",corrigindo, engine);
 		ListaControlador sinonimo = new ListaControlador();
 		NovoSinonimoControlador novo = new NovoSinonimoControlador();
 		Spark.get("/novoSinonimo", novo, engine);
