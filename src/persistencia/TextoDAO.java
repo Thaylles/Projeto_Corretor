@@ -86,6 +86,11 @@ public class TextoDAO implements DAO<Texto> {
 		if(a.exists())a.delete();
 	}
 
+	@Override
+	public Texto load(String palavra) {
+		return null;
+	}
+
 }
 
 	

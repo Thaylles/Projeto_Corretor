@@ -22,6 +22,9 @@ public class Main {
 		Spark.get("/sinonimo", sinonimo, engine);
 		NovoControlador novo = new NovoControlador();
 		Spark.get("/novo", novo, engine);
+		AdicionarSinonimosControlador adicionarSinonimos = new AdicionarSinonimosControlador();
+		Spark.post("adicionandoSinonimos", adicionarSinonimos);
+		
 	}
 
 }
