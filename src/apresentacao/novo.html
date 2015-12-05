@@ -1,18 +1,34 @@
 <html>
-<title>
-	Adicionando Sinonimos
-</title>
+<head>
+	<title> Adicionando Sinonimos </title>
+	<script>
+		function teste(){
+			var qtde = parseInt(document.getElementById("numero").value);			
+			var html = "";
+			for (i = 0; i < qtde; i++){
+				html += "<input type='text' name='sinonimos'> <br>";
+			}
+			document.getElementById("loop").innerHTML = html;
+		}
+
+		function add(){
+			document.getElementById("loop").innerHTML += "<input type='text' name='sinonimos'> <br>";	
+		}
+	</script>
+</head>
 <body>
 	<p>Digite uma palavra : </p>
 	<input type="text" name="word"></p>
-	<form method="post" action="handler.php">
-	<br>
-	<p>Digite o numero de sinonimos que deseja adicionar a essa palavra : </p>
-	<input type="number" name="numero">
-	<br>
-	<br>
-	<a href="/novo2">
-	<input type='submit' value='Enviar' />
-	</a>
+	<form method="post" action="/rotaquefazalgumacoisa">
+		<br>
+		<p>Digite o numero de sinonimos que deseja adicionar a essa palavra : </p>
+		<input type="number" id = "numero" name="numero" onblur="teste()">
+		<a style="cursor:pointer;" onclick="add()"> Adiciona </a>
+		<br>
+		<div id="loop"> </div>
+		<br>
+		<input type='submit' value='Enviar' /> 
+	</form>	
+	<a href="/novo2"> Link para o novo 2</a>
 </body>
 <html>
