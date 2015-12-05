@@ -14,9 +14,7 @@ public class AdicionarTextoControlador implements Route {
 	public Object handle(Request req, Response res) throws Exception {
 		String texto = req.queryParams("texto");
 		Texto tx = new Texto();
-		
 		textos.save(new Texto( texto));
-		
 		res.redirect("/corrigindo/"+tx.getChave());
 		return null;
 	}
