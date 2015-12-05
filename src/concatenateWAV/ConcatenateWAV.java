@@ -5,8 +5,6 @@ import java.util.*;
 
 import javax.sound.sampled.*;
 
-import sun.audio.AudioPlayer;
-
 public class ConcatenateWAV {
 	
 	public static void soletrar(String palavra) {

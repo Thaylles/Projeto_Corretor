@@ -1,32 +1,43 @@
 package modelo;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.Writer;
+import java.io.*;
 import java.util.Scanner;
 
 public class Texto {
-	
 
 	private String texto;
 	private int chave;
 	
 	public Texto(String texto) throws FileNotFoundException {
-		super();
 		this.texto = texto;
 		File cont = new File("src/apresentacao/cont.csv");
 		Scanner scan = new Scanner(cont);
-		String linha = scan.nextLine();
-		int index = Integer.parseInt(linha);
-		this.chave = index;
+		chave = Integer.parseInt(scan.nextLine());
 		
 		//adiciona +1 no cont.csv
 		Writer writer2;
 		try {
 			writer2 = new FileWriter(cont);
-			writer2.write((index + 1) + "");
+			writer2.write((chave + 1) + "");
+		
+			writer2.flush();
+			writer2.close();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public Texto() throws Exception {	
+		
+		File cont = new File("src/apresentacao/cont.csv");
+		Scanner scan = new Scanner(cont);
+		chave = Integer.parseInt(scan.nextLine());
+		
+		//adiciona +1 no cont.csv
+		Writer writer2;
+		try {
+			writer2 = new FileWriter(cont);
+			writer2.write((chave + 1) + "");
 		
 			writer2.flush();
 			writer2.close();
@@ -34,14 +45,8 @@ public class Texto {
 			e.printStackTrace();
 		}
 		
-		
-	}
-	
-	public Texto() {
-		
 	}
 
-	
 	public String getTexto() {
 		return texto;
 	}
@@ -53,14 +58,14 @@ public class Texto {
 	public int getChave() {
 		return chave;
 	}
-
-	public void setChave(int chave) {
+	
+	private void setChave(int chave) {
 		this.chave = chave;
 	}
 	
 	@Override
 	public String toString() {
-		return "Texto [ texto=" + texto  + "]";
+		return texto;
 	}
 	public String toCSV() {
 		
