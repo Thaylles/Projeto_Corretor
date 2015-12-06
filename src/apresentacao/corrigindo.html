@@ -16,14 +16,14 @@
 	
 	
 	
-<form method='post' action='/correção'>
-	<input type="checkbox" name="correção" value={{correcao1}}> Primeira Correção
+<form method='post' action='/correÃ§Ã£o'>
+	<input type="checkbox" name="correÃ§Ã£o" value=""> Primeira CorreÃ§Ã£o
 	<br>
-	<input type="checkbox" name="correção" value={{correcao2}}> Segunda Correção
+	<input type="checkbox" name="correÃ§Ã£o" value=""> Segunda CorreÃ§Ã£o
 	<br>
-	<input type="checkbox" name="correção" value={{correcao3}}> Terceira Correção
+	<input type="checkbox" name="correÃ§Ã£o" value=""> Terceira CorreÃ§Ã£o
 	<br>
-	<input type="checkbox" name="correção" value="Nenhuma Correção"> Nenhuma Correção
+	<input type="checkbox" name="correÃ§Ã£o" value="Nenhuma CorreÃ§Ã£o"> Nenhuma CorreÃ§Ã£o
 	<br>
 	<br>
 	
@@ -35,7 +35,7 @@
 	<script>
 		function verificaCaixas() {  
 		  
-		  var inpfields = document.getElementsByName("correção");
+		  var inpfields = document.getElementsByName("correÃ§Ã£o");
 		  
 		  var temp = 0;
 		  
@@ -44,7 +44,7 @@
 		  }
 		  
 		  if(temp != 1) {
-			  alert("É necessario marcar apenas uma caixa");
+			  alert("Ã‰ necessario marcar apenas uma caixa");
 			  window.event.preventDefault()
 		  }
 		  
@@ -52,7 +52,7 @@
 		
 		<!--	
 		function alterarValor() {  
-			  var inpfields = document.getElementsByName("correção");
+			  var inpfields = document.getElementsByName("correÃ§Ã£o");
 			  
 			  inpfields[0].value = {{correcao1}};
 			  inpfields[1].value = {{correcao2}};
