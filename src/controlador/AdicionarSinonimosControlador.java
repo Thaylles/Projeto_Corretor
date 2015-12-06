@@ -1,5 +1,7 @@
 package controlador;
 
+import java.io.FileNotFoundException;
+
 import modelo.Palavras;
 import modelo.Texto;
 import persistencia.DAO;
@@ -16,13 +18,16 @@ import spark.TemplateViewRoute;
 public class AdicionarSinonimosControlador implements TemplateViewRoute {
 
 
-	DAO<Palavras> sinonimos = new PalavrasDAO();
-	public ModelAndView handle(Request req, Response arg1) {
-		Object a = req.queryParams("word");
-		System.out.println(a);
-		//String[] sinonimo = req.queryParams("sinonimo");
-		//sinonimos.save(new Palavras(palavra,sinonimo));
-		//res.redirect("/sinonimos");	
+	PalavrasDAO sinonimos = new PalavrasDAO();
+	public ModelAndView handle(Request req, Response res) {
+		String palavra = req.queryParams("word");
+		String sinonimo = req.queryParams("sinonimos");
+		try {
+			sinonimos.save(new Palavras(palavra,sinonimo));
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		}
+		res.redirect("/novo");	
 		return new ModelAndView(null, "novo.html");	
 	}
 	

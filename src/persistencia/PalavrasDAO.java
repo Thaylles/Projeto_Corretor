@@ -10,39 +10,66 @@ import java.util.Scanner;
 import modelo.Palavras;
 import modelo.Texto;
 
-public class PalavrasDAO implements DAO<Palavras> {
+public class PalavrasDAO {
 
-	@Override
 	public void save(Palavras obj) throws FileNotFoundException {
 		File dir = new File("src/apresentacao/Sinonimos");
 		if(! dir.exists()) 
 			dir.mkdir();
 		
-		File file = new File("src/apresentacao/Sinonimos/" + obj.getPalavra() + ".csv");
+		File file = new File("src/apresentacao/Sinonimos/Sinonimos.csv");
 		if(file.exists() == false) {
 			
 			FileWriter writer;
-			try {
-				
+
+			try { 
 				writer = new FileWriter(file);
 				writer.write(obj.toCSV());
 				
 				writer.flush();
 				writer.close();
 				
-				
-			} catch (IOException e) {
+			}catch (IOException e) {
 				e.printStackTrace();
 			}
+		}
 	}
-}
 
-	@Override
-	public Palavras load(int chave) {
+	public Palavras load(String palavra) {
+		try {
+			File arq = new File("src/apresentacao/Sinonimos/Sinonimos.csv");
+			
+			if (!arq.exists()) return null;
+			
+			Scanner scan = new Scanner(arq);
+			String linha = scan.nextLine();
+			String[] colunas = linha.split(";");
+			String[] sinonimos = new String[3];
+			int j=0;
+			while(scan.hasNextLine()){
+				while(j < 3){
+				if(palavra == colunas[0]){
+					if(Integer.parseInt(colunas[2]) > -3){sinonimos[j] = colunas[1]; j++;}
+					}
+				if(palavra == colunas[1]){
+				if(Integer.parseInt(colunas[2]) > -3){sinonimos[j] = colunas[0]; j++;}
+					}
+				}
+			}
+			
+			Palavras f = new Palavras();
+			f.fromCSV(sinonimos);
+			
+			scan.close();
+			return f;
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 		return null;
 	}
 
-	@Override
+	
 	public ArrayList<Palavras> findAll() {
 		ArrayList<Palavras> lista = new ArrayList<Palavras>();
 		try {
@@ -53,9 +80,7 @@ public class PalavrasDAO implements DAO<Palavras> {
 				String linha = scan.nextLine();
 				String[] colunas = linha.split(";");
 				Palavras f = new Palavras();
-				f.setPalavra(colunas[0]);
-				f.setSinonimosBuilder(colunas[1]);
-				f.setChave(Integer.parseInt(colunas[2]));
+				f.fromCSV(linha);
 				lista.add(f);
 				scan.close();
 			}
@@ -63,37 +88,6 @@ public class PalavrasDAO implements DAO<Palavras> {
 			e.printStackTrace();
 		}
 		return lista;
-	}
-
-	@Override
-	public void delete(int chave) {
-		File a = new File("src/apresentacao/Textos/" + chave + ".csv");
-		if(a.exists())a.delete();
-	}
-
-	@Override
-	public Palavras load(String palavra) {
-		try {
-			File arq = new File("src/apresentacao/Sinonimos/" + palavra + ".csv");
-			
-			if (!arq.exists()) return null;
-			
-			Scanner scan = new Scanner(arq);
-			String linha = scan.nextLine();
-			String[] colunas = linha.split(";");
-			
-			Palavras f = new Palavras();
-			f.setPalavra(colunas[0]);
-			f.setSinonimosBuilder(colunas[1]);
-			f.setChave(Integer.parseInt(colunas[2]));
-			
-			scan.close();
-			return f;
-			
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		return null;
 	}
 
 }
