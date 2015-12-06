@@ -2,26 +2,15 @@
 <head>
 	<title> Adicionando Sinonimos </title>
 	<link rel="stylesheet" type="text/css" href="estilo.css">
-	<script>
-		function teste(){
-			var qtde = parseInt(document.getElementById("numero").value);			
-			var html = "";
-			for (i = 0; i < qtde; i++){
-				html += "<input type='text' name='sinonimos'> <br>";
-			}
-			document.getElementById("loop").innerHTML = html;
-		}
-	</script>
 </head>
 <body>
 	<p>Digite uma palavra : </p>
 	<input type="text" name="palavra"></p>
 	<form method="post" action="/adicionaSinonimos">
 		<br>
-		<p>Digite o numero de sinonimos que deseja adicionar a essa palavra : </p>
-		<input type="number" id = "numero" name="numero" onblur="teste()">
+		<p>Digite um sinonimo dessa palavra : 
+		<input type="text" name='sinonimo'></p>
 		<br>
-		<div id="loop"> </div>
 		<br>
 		<input type='submit' value='Enviar' /> 
 	</form>	
