@@ -15,20 +15,20 @@ import spark.Route;
 import spark.TemplateViewRoute;
 
 
-public class AdicionarSinonimosControlador implements TemplateViewRoute {
+public class AdicionarSinonimosControlador implements TemplateViewRoute, Route {
 
 
 	PalavrasDAO sinonimos = new PalavrasDAO();
 	public ModelAndView handle(Request req, Response res) {
-		String palavra = req.queryParams("word");
+		String palavra = req.queryParams("palavra");
 		String sinonimo = req.queryParams("sinonimos");
 		try {
 			sinonimos.save(new Palavras(palavra,sinonimo));
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		}
-		res.redirect("/novo");	
-		return new ModelAndView(null, "novo.html");	
+		res.redirect("/lista");	
+		return new ModelAndView(null, "lista.html");	
 	}
 	
 
