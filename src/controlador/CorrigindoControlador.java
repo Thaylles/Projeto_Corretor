@@ -2,8 +2,8 @@ package controlador;
 
 import java.io.File;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Scanner;
-
 import distance.Levenshtein;
 import modelo.Erro;
 import modelo.Palavras;
@@ -18,37 +18,38 @@ public class CorrigindoControlador implements TemplateViewRoute {
 	TextoDAO dao = new TextoDAO();
 	Erro erros = new Erro();
 	ArrayList palavras = new ArrayList(); 
+	int i = 0;
 	@Override
 	public ModelAndView handle(Request req, Response resp) {
 		try {
+			if(i == 0){
 			int parametro = Integer.parseInt(req.params("numero"));
 			palavras = erros.contaErros(parametro);
+			}
 			System.out.println(palavras.toString());
-		/*	tx = new Texto();
-			 tx = dao.load(Integer.parseInt(req.params("numero")));
-				File arq = new File("src/apresentacao/Textos/" + Integer.parseInt(req.params("numero")) + ".csv");
-				if (!arq.exists()) return null;
-				
-				Scanner scan = new Scanner(arq);
-				String linha = scan.nextLine();
-				String[] colunas = linha.split(" ");
-				scan.close();
-				
-				for(int i = 0; i<colunas.length;i++){
-					System.out.println(colunas[i]);
+			HashMap dados = new HashMap();
+			
+			dados.put("erro1", erros.get(i));//
+			dados.put("erro2", erros.get(i+1));//1
+			dados.put("erro3", erros.get(i+2));//2
+			System.out.println(dados.toString());
+			if(erros.get(i+=4)!= null){
+			i+=4;
+			}else{
+				if(erros.get(i+=3)!= null){
+					i+=3;
+				}else{
+					if(erros.get(i+=2)!=null)i+=2;
 				}
-				
-			*/
-			 
-				
-				
+			}
+			return new ModelAndView(dados, "corrigindo.html");
 				
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
-		return new ModelAndView(null,"corrigindo.html");
+		return new ModelAndView(null,"/home");
 	}
 
 }

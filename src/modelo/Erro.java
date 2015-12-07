@@ -39,5 +39,10 @@ public class Erro {
 	public ArrayList getErros() {
 		return erros;
 	}
+
+	public Object get(int i) {
+		return erros.get(i);
+	}
+	
 		
 }

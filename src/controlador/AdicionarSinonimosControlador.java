@@ -23,7 +23,7 @@ public class AdicionarSinonimosControlador implements TemplateViewRoute {
 		//String[] sinonimo = req.queryParams("sinonimo");
 		//sinonimos.save(new Palavras(palavra,sinonimo));
 		//res.redirect("/sinonimos");	
-		return new ModelAndView(null, "novo.html");	
+		return new ModelAndView(null, "novoSinonimo.html");	
 	}
 	
 

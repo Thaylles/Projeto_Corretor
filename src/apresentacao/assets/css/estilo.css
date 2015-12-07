@@ -1,10 +1,9 @@
 body {
-  font-size: 14pt;
   background-color: rgb(170, 171, 176);
   background-image: url("logo.png");
   background-repeat: no-repeat;
   background-attachment: fixed;
-   background-position: center; 
+  background-position: center; 
 
 }
 

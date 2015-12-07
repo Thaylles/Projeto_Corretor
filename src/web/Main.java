@@ -23,6 +23,7 @@ public class Main {
 		Spark.get("/novoSinonimo", novo, engine);
 		AdicionarSinonimosControlador adicionarSinonimos = new AdicionarSinonimosControlador();
 		Spark.get("/sinonimo",adicionarSinonimos,engine);
+		Spark.get("corrigindo:/numero:/numero2", corrigindo, engine);
 
 		
 	}
