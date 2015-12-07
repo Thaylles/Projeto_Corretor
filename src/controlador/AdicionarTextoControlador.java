@@ -9,7 +9,7 @@ import spark.*;
 
 public class AdicionarTextoControlador implements Route {
 	
-	DAO<Texto> textos = new TextoDAO();
+	TextoDAO textos = new TextoDAO();
 	
 	public Object handle(Request req, Response res) throws Exception {
 		String texto = req.queryParams("texto");

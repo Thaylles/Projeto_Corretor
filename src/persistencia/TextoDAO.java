@@ -6,7 +6,7 @@ import java.util.Scanner;
 
 import modelo.Texto;
 
-public class TextoDAO implements DAO<Texto> {
+public class TextoDAO{
 	
 	public void save(Texto obj) throws FileNotFoundException {
 		File dir = new File("src/apresentacao/Textos");
@@ -81,12 +81,6 @@ public class TextoDAO implements DAO<Texto> {
 		File a = new File("src/apresentacao/Textos/" + chave + ".csv");
 		if(a.exists())a.delete();
 	}
-
-	@Override
-	public Texto load(String palavra) {
-		return null;
-	}
-
 }
 
 	

@@ -10,54 +10,41 @@ import java.util.Scanner;
 
 public class Palavras {
 	
-	private  String palavra;
+	private String palavra;
+	private String sinonimo;
 	private String[] sinonimos;
-	private int chave;
-	private String sinonimosBuilder = "";
-
-	public String[] getSinonimos() {
-		return sinonimos;
+	private int curtidas;
+	
+	public String getSinonimo() {
+		return sinonimo;
 	}
 
-	public void setSinonimos(String[] columns) {
-		for(int i=0; i < columns.length; i++){
-			sinonimos[i] = columns[i]; 
-		}
+	public void setSinonimo(String sinonimo) {
+		this.sinonimo = sinonimo;
 	}
+
+	public int getCurtidas() {
+		return curtidas;
+	}
+
+	public void setCurtidas(int curtidas) {
+		this.curtidas = curtidas;
+	}
+
 	
 	public Palavras() {
 		
 	}
-	public Palavras(String palavra, String[] sinonimos) throws FileNotFoundException {
+	public Palavras(String palavra, String sinonimo) throws FileNotFoundException {
 		super();
 		this.palavra = palavra;
-		this.sinonimos = sinonimos;
-		File cont = new File("src/apresentacao/contadorSinonimos.csv");
-		Scanner scan = new Scanner(cont);
-		String linha = scan.nextLine();
-		int index = Integer.parseInt(linha);
-		this.chave = index;
-		
-		//adiciona +1 no cont.csv
-		Writer writer2;
-		try {
-			writer2 = new FileWriter(cont);
-			writer2.write((index + 1) + "");
-		
-			writer2.flush();
-			writer2.close();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		
-		
+		this.sinonimo = sinonimo;
 	}
 	
 	public String toCSV() {
 		
 		StringBuilder builder = new StringBuilder();
-		for(int i=0; i < sinonimos.length ; i++) sinonimosBuilder = sinonimos[i]+","+sinonimosBuilder; 
-		builder.append(palavra).append(";").append(sinonimosBuilder).append(";").append(chave + "").append("\n");
+		builder.append(palavra).append(";").append(sinonimo).append(";").append(""+curtidas).append("\n");
 		return builder.toString();
 	}
 	
@@ -65,18 +52,22 @@ public class Palavras {
 		
 		String[] columns = row.split(";");
 		this.setPalavra(columns[0]);
-		this.setSinonimosBuilder(columns[1]);
-		this.setChave(Integer.parseInt(columns[2]));
+		this.setSinonimo(columns[1]);
+		this.setCurtidas(Integer.parseInt(columns[2]));
 		
 	}
-
-	public String getSinonimosBuilder() {
-		return sinonimosBuilder;
+	public String[] getSinonimos() {
+		return sinonimos;
 	}
 
-	public void setSinonimosBuilder(String sinonimosBuilder) {
-		this.sinonimosBuilder = sinonimosBuilder;
+	public void setSinonimos(String[] sinonimos) {
+		this.sinonimos = sinonimos;
 	}
+
+	public void fromCSV(String[] a){
+		this.setSinonimos(a);
+	}
+
 
 	public String getPalavra() {
 		return palavra;
@@ -84,15 +75,5 @@ public class Palavras {
 
 	public void setPalavra(String palavra) {
 		this.palavra = palavra;
-	}
-
-	public int getChave() {
-		return chave;
-	}
-
-	public void setChave(int chave) {
-		this.chave = chave;
-	}
-	public static void main(String[] args) {
 	}
 }

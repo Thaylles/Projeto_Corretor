@@ -1,6 +1,7 @@
 <html>
 <head>
 	<title> Adicionando Sinonimos </title>
+<<<<<<< HEAD
 	<link rel="stylesheet" type="text/css" href="\Projeto_Corretor\src\apresentacao\assets\css\estilo.css">
 	<script>
 		function teste(){
@@ -12,16 +13,18 @@
 			document.getElementById("loop").innerHTML = html;
 		}
 	</script>
+=======
+	<link rel="stylesheet" type="text/css" href="estilo.css">
+>>>>>>> 021f7b70850d5f1c3a28de4594a7dabcf1be42ce
 </head>
 <body>
-	<p>Digite uma palavra : </p>
-	<input type="text" name="word"></p>
 	<form method="post" action="/adicionaSinonimos">
+	<p>Digite uma palavra : </p>
+	<input type="text" name="palavra"></p>
 		<br>
-		<p>Digite o numero de sinonimos que deseja adicionar a essa palavra : </p>
-		<input type="number" id = "numero" name="numero" onblur="teste()">
+		<p>Digite um sinonimo dessa palavra : 
+		<input type="text" name="sinonimo"></p>
 		<br>
-		<div id="loop"> </div>
 		<br>
 		<input type='submit' value='Enviar' /> 
 	</form>	

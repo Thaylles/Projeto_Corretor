@@ -10,7 +10,7 @@ public class Main {
 		String[] b = {"teco-teco", "jato"};
 		
 		try {
-			Palavras palavra = new Palavras(a,b);
+			Palavras palavra = new Palavras(a,b[1]);
 			System.out.println(palavra.getPalavra());
 			String[] c = palavra.getSinonimos();
 			System.out.println(c[0]);
